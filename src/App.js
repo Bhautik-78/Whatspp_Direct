@@ -1,183 +1,109 @@
 import React,{useState} from 'react';
 import {CountryList} from './globalUtility/CONST'
-import { Tag, Input, Tooltip } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { Col,  Row,Card} from "reactstrap";
+import pic1 from './Assets/6.jpg'
+
 import './App.css'
 import './Assets/style.css'
 
 const App = () => {
 
     const [detail,setDetail] = useState({country:CountryList[0].code + CountryList[0].dial_code});
-    const [state,setState] = useState({
-        tags: ['Unremovable', 'Tag 2', 'Tag 3'],
-        inputVisible: false,
-        inputValue: '',
-        editInputIndex: -1,
-        editInputValue: '',
-    });
 
-    const handleChange = (e) => {debugger
+    const handleChange = (e) => {
         const {name, value} = e.target;
         setDetail({...detail, [name]: value})
     };
 
     const sendClicked = () => {
         const dialCode = "+".concat(detail.country.split("+")[1]);
-        debugger
         window.open(`https://api.whatsapp.com/send?phone=${dialCode}${detail.phone}&text=${detail.message}`, '_blank');
     };
 
-
-    const handleClose = removedTag => {
-        const tags = state.tags.filter(tag => tag !== removedTag);
-        console.log(tags);
-        setState({ tags });
-    };
-
-    const showInput = () => {
-        setState({ inputVisible: true }, () => this.input.focus());
-    };
-
-    const handleInputChange = e => {
-        setState({ inputValue: e.target.value });
-    };
-
-    const handleInputConfirm = () => {
-        const { inputValue } = state;
-        let { tags } = state;
-        if (inputValue && tags.indexOf(inputValue) === -1) {
-            tags = [...tags, inputValue];
-        }
-        console.log(tags);
-        setState({
-            tags,
-            inputVisible: false,
-            inputValue: '',
-        });
-    };
-
-    const handleEditInputChange = e => {
-       setState({ editInputValue: e.target.value });
-    };
-
-    const handleEditInputConfirm = () => {
-       setState(({ tags, editInputIndex, editInputValue }) => {
-            const newTags = [...tags];
-            newTags[editInputIndex] = editInputValue;
-
-            return {
-                tags: newTags,
-                editInputIndex: -1,
-                editInputValue: '',
-            };
-        });
-    };
-
-    const saveInputRef = input => {
-        this.input = input;
-    };
-
-    const saveEditInputRef = input => {
-        this.editInput = input;
-    };
-
-    const { tags, inputVisible, inputValue, editInputIndex, editInputValue } = state;
-
   return(
-    <>
-        <div className=" container">
-          <h1     style={{marginTop:'20px',marginBottom:'35px'}} >WhatsApp Direct</h1>
-            <form id="theForm">
-                <div id="phone_group" >
-                    <label id="country_code_label">{detail.country}</label>
-                    <input onKeyUp="checkPhoneValidity()" onfocusout="checkPhoneValidity()"
-                           onFocus="checkPhoneValidity()" onChange={handleChange} type="tel" name="phone"
-                           id="phone" placeholder="Phone Number"/>
-                    <select id="country_code_selector" name="country" onChange={handleChange} value={detail.country}
-                            onBlur="changeLabelWithCountryCode();">
-                        {
-                            CountryList.map((v)=> (
-                                <option value={v.code + v.dial_code}>{v.name}</option>
-                            ))
-                        }
+      <>
+          <div className="App ">
+              <div className="demo" style={{height:60}}>
+                  <span style={{float:"right",display:"inline-flex"}}><h4 style={{color:'beige',marginTop:14}}>Username</h4><img style={{marginLeft:10,marginRight:10,marginTop:5,height:50,width:50}} src={pic1}/></span>
+              </div>
+          </div>
+          <Row>
+              <Col md={3}>
+                  <div className="site-card-border-less-wrapper">
+                      <Card title="Card title" bordered={false} style={{ width: 300 }}>
 
-                    </select>
-                </div>
-                <textarea id="message" placeholder="Message (Optional)" onKeyUp="messageTyping()"
+                      </Card>
+                  </div>
+              </Col>
+              <Col md={6} className=" container">
+                  <h1 style={{marginTop: '20px', marginBottom: '35px'}}>WhatsApp Direct</h1>
+                  <Row>
+                      <Col id="phone_group" md={2}>
+                          <label id="country_code_label">{detail.country}</label>
+                          <select id="country_code_selector" name="country" onChange={handleChange}
+                                  value={detail.country}
+                                  onBlur="changeLabelWithCountryCode();">
+                              {
+                                  CountryList.map((v) => (
+                                      <option value={v.code + v.dial_code}>{v.name}</option>
+                                  ))
+                              }
+                          </select>
+                      </Col>
+                      <Col col={10}>
+                          <input onKeyUp="checkPhoneValidity()" onfocusout="checkPhoneValidity()"
+                                 onFocus="checkPhoneValidity()" onChange={handleChange} type="tel" name="phone"
+                                 id="phone" placeholder="Phone Number"/>
+                      </Col>
+
+                  </Row>
+                  <Row>
+                      <Col md={12}>
+                <textarea id="message" placeholder="Enter your Message" onKeyUp="messageTyping()"
                           onfocusout="messageTyping()" onFocus="messageTyping()" name="message" onChange={handleChange}
+                          value={detail.message}
                           defaultValue={""}/>
-                <button  className="btn col-md-2" id="send" onClick={sendClicked}>SMS</button>
-                <button style ={{marginRight: '30px'}} className="btn col-md-2" id="send" onClick={sendClicked}>Business</button>
-                <button style ={{marginRight: '30px'}} className="btn col-md-2" id="send" onClick={sendClicked}>Whatsapp</button>
+                      </Col>
+                  </Row>
+                  <div>
+                      <button style={{marginRight: '30px'}} className="btn col-md-2" id="send"
+                              onClick={sendClicked}>SMS
+                      </button>
+                      <button style={{marginRight: '30px'}} className="btn col-md-2" id="send"
+                              onClick={sendClicked}>Business
+                      </button>
+                      <button style={{marginRight: '30px'}} className="btn col-md-2" id="send"
+                              onClick={sendClicked}>Whatsapp
+                      </button>
+                      <br/><br/>
+                  </div>
 
 
-                {tags.map((tag, index) => {
-                    if (editInputIndex === index) {
-                        return (
-                            <Input
-                                ref={saveEditInputRef}
-                                key={tag}
-                                size="small"
-                                className="tag-input"
-                                value={editInputValue}
-                                onChange={handleEditInputChange}
-                                onBlur={handleEditInputConfirm}
-                                onPressEnter={handleEditInputConfirm}
-                            />
-                        );
-                    }
+                  <button style={{marginRight: '10px'}} onClick={() => {
+                      setDetail({...detail, message: "Hi"})
+                  }}>Hi
+                  </button>
+                  <button style={{marginRight: '10px'}} onClick={() => {
+                      setDetail({...detail, message: "Hello"})
+                  }}>Hello
+                  </button>
+                  <button style={{marginRight: '10px'}} onClick={() => {
+                      setDetail({...detail, message: "Email"})
+                  }}>Email
+                  </button>
+                  <button style={{marginRight: '10px'}} onClick={() => {
+                      setDetail({...detail, message: "How are you?"})
+                  }}>How are you?
+                  </button>
+              </Col>
+              <Col md={3}>
+                  <div className="site-card-border-less-wrapper">
+                      <Card title="Card title" bordered={false} style={{ width: 300 }}>
 
-                    const isLongTag = tag.length > 20;
-
-                    const tagElem = (
-                        <Tag
-                            className="edit-tag"
-                            key={tag}
-                            closable={index !== 0}
-                            onClose={() => handleClose(tag)}
-                        >
-              <span
-                  onDoubleClick={e => {
-                      if (index !== 0) {
-                          setState({ editInputIndex: index, editInputValue: tag }, () => {
-                              state.editInput.focus();
-                          });
-                          e.preventDefault();
-                      }
-                  }}
-              >
-                {isLongTag ? `${tag.slice(0, 20)}...` : tag}
-              </span>
-                        </Tag>
-                    );
-                    return isLongTag ? (
-                        <Tooltip title={tag} key={tag}>
-                            {tagElem}
-                        </Tooltip>
-                    ) : (
-                        tagElem
-                    );
-                })}
-                {inputVisible && (
-                    <Input
-                        ref={saveInputRef}
-                        type="text"
-                        size="small"
-                        className="tag-input"
-                        value={inputValue}
-                        onChange={handleInputChange}
-                        onBlur={handleInputConfirm}
-                        onPressEnter={handleInputConfirm}
-                    />
-                )}
-                {!inputVisible && (
-                    <Tag className="site-tag-plus" onClick={showInput}>
-                        <PlusOutlined /> New Tag
-                    </Tag>
-                )}
-
-            </form>
-        </div>
+                      </Card>
+                  </div>
+              </Col>
+          </Row>
       </>
   )
 };

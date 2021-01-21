@@ -37,6 +37,7 @@
   }
 }
 
+
 .site-tag-plus {
   background: #fff;
   border-style: dashed;
@@ -48,4 +49,16 @@
   width: 78px;
   margin-right: 8px;
   vertical-align: top;
+}
+
+.App  img{
+  border-radius: 25px;
+}
+
+.site-card-border-less-wrapper {
+  padding: 30px;
+  background: #ececec;
+  margin-right: 15px;
+  margin-left: 15px;
+  height: 145%;
 }

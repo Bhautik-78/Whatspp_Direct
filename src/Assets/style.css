@@ -58,7 +58,8 @@ input[type=tel], input[type=text], label, select {
     padding: 15px;
     font-size: 18px;
     border: 0;
-    background-color: #FFF
+    background-color: #FFF;
+    width: 99%;
 }
 
 textarea {
@@ -89,7 +90,8 @@ textarea {
 input[type=text] input[type=tel], textarea {
     font-size: 18px;
     border: 0;
-    border-radius: 0
+    border-radius: 0;
+    width: 99%
 }
 
 #phone_group:focus, textarea:focus {
@@ -101,23 +103,24 @@ input[type=text] input[type=tel], textarea {
 }
 
 #phone_group #country_code_selector {
-    height: 60px;
-    width: 40%;
+    height: 59px;
+    width: 73%;
     padding: 0;
     float: left;
     position: absolute;
     left: 0;
-    opacity: 0
+    margin-left: 14px;
+    opacity: 0;
 }
 
 #phone_group #country_code_label {
-    width: 40%;
+    width: 85%;
     float: left;
     line-height: 28px;
     padding-right: 0;
     padding-left: 0;
     text-align: center;
-    color: #44c767
+    color: #44c767;
 }
 
 #phone_group #country_code_label:after {
@@ -133,9 +136,10 @@ input[type=text] input[type=tel], textarea {
 }
 
 #phone_group input[type=tel] {
-    width: 60%;
+    width: 87%;
     float: left;
-    padding-left: 0
+    padding-left: 0;
+    margin-left: 24px
 }
 
 ::placeholder {
