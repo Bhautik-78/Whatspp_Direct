@@ -1,0 +1,204 @@
+input[type=tel], input[type=text], input[type=text] input[type=tel], label, select, textarea {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    -webkit-appearance: none;
+    outline: 0
+}
+
+#phone_group, textarea {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 0 0 1px rgba(0, 0, 0, .08);
+    transition: box-shadow .2s cubic-bezier(.4, 0, .2, 1);
+    width: 100%
+}
+
+div#theForm, footer, header {
+    text-align: center
+}
+
+#phone_group, footer, header {
+    position: relative
+}
+
+* {
+    box-sizing: border-box
+}
+
+body, html {
+    background-color: black;
+    font-size: 18px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #777
+}
+
+container {
+    width: 768px;
+    max-width: 100%;
+    padding: 5px;
+    display: block;
+    margin: auto
+}
+
+content, header {
+    width: 100%;
+    float: left;
+    margin: 10px 0
+}
+
+.btn, textarea {
+    margin-top: 25px
+}
+
+div#theForm img {
+    width: 250px;
+    height: auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 0 0 1px rgba(0, 0, 0, .08)
+}
+
+input[type=tel], input[type=text], label, select {
+    height: 60px;
+    padding: 15px;
+    font-size: 18px;
+    border: 0;
+    background-color: #FFF
+}
+
+textarea {
+    height: 150px;
+    padding: 15px
+}
+
+.btn {
+    background: #44c767;
+    padding: 12px 36px;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    font-size: 20px;
+    text-decoration: none
+}
+
+#theForm .btn {
+    float: right
+}
+
+.btn.disabled {
+    opacity: .4
+}
+
+input[type=text] input[type=tel], textarea {
+    font-size: 18px;
+    border: 0;
+    border-radius: 0
+}
+
+#phone_group:focus, textarea:focus {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .2), 0 0 0 1px rgba(0, 0, 0, .08)
+}
+
+#phone_group {
+    float: left
+}
+
+#phone_group #country_code_selector {
+    height: 60px;
+    width: 40%;
+    padding: 0;
+    float: left;
+    position: absolute;
+    left: 0;
+    opacity: 0
+}
+
+#phone_group #country_code_label {
+    width: 40%;
+    float: left;
+    line-height: 28px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
+    color: #44c767
+}
+
+#phone_group #country_code_label:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #44c767;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px
+}
+
+#phone_group input[type=tel] {
+    width: 60%;
+    float: left;
+    padding-left: 0
+}
+
+::placeholder {
+    color: #ddd
+}
+
+#instructions {
+    width: 100%;
+    float: left;
+    margin-top: 50px
+}
+
+#instructions div {
+    width: 100%;
+    float: left;
+    margin: 15px 0
+}
+
+header div {
+    width: 100%;
+    float: left
+}
+
+header img {
+    width: 70px;
+    height: auto;
+    float: left
+}
+
+header span {
+    width: 100%;
+    text-align: left;
+    padding: 20px 20px 20px 80px;
+    position: absolute;
+    left: 0;
+    z-index: 9;
+    font-size: 24px
+}
+
+footer {
+    display: block;
+    padding: 20px 0;
+    float: left;
+    width: 100%
+}
+
+footer:before {
+    content: "";
+    position: absolute;
+    border-top: 1px solid #777;
+    width: 50%;
+    margin: 0 25%;
+    height: 1px;
+    top: 0;
+    left: 0
+}
+
+footer .footer_left {
+    margin-bottom: 20px
+}
+
+@media all and (display-mode: standalone) {
+    #install_button {
+        display: none
+    }
+}
