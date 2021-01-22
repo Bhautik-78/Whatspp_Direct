@@ -55,10 +55,19 @@
   border-radius: 25px;
 }
 
+.App{
+  background-color: rgb(27 27 27);
+}
+
 .site-card-border-less-wrapper {
   padding: 30px;
   background: #ececec;
   margin-right: 15px;
-  margin-left: 15px;
-  height: 145%;
+  margin-left: 35px;
+  height: 100%;
+  width: 200px;
+}
+
+.card{
+  border: none;
 }
