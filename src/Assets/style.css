@@ -21,12 +21,12 @@ body, html {
     background-color: black;
     font-size: 18px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    color: #ffffff
+    color: #ffffff;
+    width: unset  ;
+    height: unset ;
 }
 container {
     width: 768px;
-    max-width: 100%;
-    padding: 5px;
     display: block;
     margin: auto
 }
@@ -54,18 +54,26 @@ input[type=tel], input[type=text], label, select {
 }
 textarea {
     height: 150px;
-    padding: 15px
+    padding: 15px;
 }
-.btn {
-    min-width: 140px;
+.smsSend .btn {
+    min-width: 100px;
     background: #ffffff;
-    padding: 12px 36px;
     border: none;
     color: #000000;
     cursor: pointer;
     border-radius: 2px;
     -webkit-appearance: none;
-    font-size: 20px;
+    text-decoration: none
+}
+.whatsappSend .btn {
+    max-width: 100%;
+    background: #ffffff;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-appearance: none;
     text-decoration: none
 }
 #theForm .btn {
@@ -89,7 +97,6 @@ input[type=text] input[type=tel], textarea {
 #phone_group #country_code_selector {
     height: 59px;
     width: 73%;
-    padding: 0;
     float: left;
     position: absolute;
     left: 0;
@@ -100,8 +107,6 @@ input[type=text] input[type=tel], textarea {
     width: 85%;
     float: left;
     line-height: 28px;
-    padding-right: 0;
-    padding-left: 0;
     text-align: center;
     color: #ffffff;
 }
@@ -119,7 +124,6 @@ input[type=text] input[type=tel], textarea {
 #phone_group input[type=tel] {
     width: 87%;
     float: left;
-    padding-left: 0;
     margin-left: 24px
 }
 ::placeholder {
@@ -147,7 +151,6 @@ header img {
 header span {
     width: 100%;
     text-align: left;
-    padding: 20px 20px 20px 80px;
     position: absolute;
     left: 0;
     z-index: 9;
@@ -155,7 +158,6 @@ header span {
 }
 footer {
     display: block;
-    padding: 20px 0;
     float: left;
     width: 100%
 }
